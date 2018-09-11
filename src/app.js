@@ -5,6 +5,7 @@ import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import Main from './components/Main';
+import { startSetTrending } from './actions/search';
 
 const store = configureStore();
 const jsx = (
@@ -14,3 +15,5 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('app'));
+
+store.dispatch(startSetTrending());
