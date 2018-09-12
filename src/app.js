@@ -13,7 +13,6 @@ const jsx = (
     <Main />
   </Provider>
 );
-
-ReactDOM.render(jsx, document.getElementById('app'));
-
-store.dispatch(startSetTrending());
+store.dispatch(startSetTrending()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app'));
+});

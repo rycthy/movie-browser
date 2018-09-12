@@ -5,12 +5,10 @@ export const setTrending = (imgPaths) => ({
   imgPaths
 });
 export const startSetTrending = () => {
-  return (dispatch, getState) => {
-    fetch(baseUrl).then((res) => {
+  return (dispatch) => {
+    return fetch(baseUrl).then((res) => {
       res.json().then((data) => {
-        console.log(data.results);
         const imgPaths = data.results.map((result) => result.poster_path);
-        console.log(imgPaths);
         dispatch(setTrending(imgPaths));
       });
     });
