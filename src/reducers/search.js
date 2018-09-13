@@ -1,7 +1,7 @@
 
 const initialState = {
   query: '',
-  media: 'movie',
+  mediaType: 'movie',
   results: []
 };
 
@@ -16,6 +16,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         query: action.query
+      };
+    case 'SET_MEDIA_TYPE':
+      return {
+        ...state,
+        mediaType: action.mediaType
       }
     default:
       return state;

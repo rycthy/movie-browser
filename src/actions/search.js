@@ -1,4 +1,4 @@
-import { trendingUrl, searchUrl } from "../utils/tmdbConfig";
+import { trendingUrl, searchUrl, apiKey } from "../utils/tmdbConfig";
 
 export const setResults = (results) => ({
   type: `SET_RESULTS`,
@@ -21,7 +21,8 @@ export const setQuery = (query) => ({
 export const startSetQueryResults = () => {
   return (dispatch, getState) => {
     const query = getState().search.query;
-    return fetch(`${searchUrl}&query=${query}`).then((res) => {
+    const mediaType = getState().search.mediaType;
+    return fetch(`${searchUrl}${mediaType}${apiKey}&query=${query ? query : "\"\""}&include_adult=false`).then((res) => {
       res.json().then((data) => {
         const results = data.results.map((result) => result);
         dispatch(setResults(results));
@@ -29,3 +30,7 @@ export const startSetQueryResults = () => {
     });
   }
 }
+export const setMediaType = (mediaType) => ({
+  type: 'SET_MEDIA_TYPE',
+  mediaType
+});
