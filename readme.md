@@ -1,3 +1,1 @@
-# Git commands
-
-test
+Building a UI to browse movies using The Movie DB API
