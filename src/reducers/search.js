@@ -1,7 +1,7 @@
 
 const initialState = {
   query: '',
-  mediaType: 'movie',
+  mediaType: 'multi',
   results: []
 };
 

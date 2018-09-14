@@ -26,6 +26,7 @@ const SearchFrom = (props) => {
           onChange={onQueryChange}
         />
         <select onChange={onMediaTypeChange}>
+          <option value='multi'>All</option>
           <option value='movie'>Movies</option>
           <option value='tv'>TV Shows</option>
           <option value='person'>People</option>
